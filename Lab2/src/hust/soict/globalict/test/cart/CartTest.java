@@ -1,3 +1,7 @@
+package hust.soict.globalict.test.cart;
+import hust.soict.globalict.aims.cart.Cart;
+import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+
 // Hoàng Tố An - 20214980
 public class CartTest {
 	public static void main(String[] args) {

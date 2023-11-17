@@ -1,3 +1,6 @@
+package hust.soict.globalict.aims.cart;
+import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+
 // Hoàng Tố An - 20214980
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
@@ -8,13 +11,13 @@ public class Cart {
 	int qtyOrdered() {
 		return size;
 	}
-	void addDigitalVideoDisc(DigitalVideoDisc disc) {
+	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
 		itemsOrdered[i] = disc;
 		i++;
 		size++;
 	}
 	
-	void addDigitalVideoDisc(DigitalVideoDisc []dvdList) {
+	public void addDigitalVideoDisc(DigitalVideoDisc []dvdList) {
 		for(int i = 0; i < dvdList.length; i++) {
 			itemsOrdered[size] = dvdList[i];
 			size++;
@@ -28,7 +31,7 @@ public class Cart {
 //		}
 //	}     
 	
-	void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2)
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2)
 	{
 		itemsOrdered[size] = dvd1;
 		itemsOrdered[size + 1] = dvd2;
