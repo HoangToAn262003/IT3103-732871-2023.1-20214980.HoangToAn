@@ -57,16 +57,19 @@ public class Cart {
     public void print()
     {
     	System.out.println("***********************CART***********************");
-    	System.out.println("Ordered Items");
+    	System.out.println("Ordered Items:");
     	for(int i = 0; i < qtyOrdered(); i++) {
-	    	System.out.print(itemsOrdered[i].getTitle() + "  " + itemsOrdered[i].getCategory()+ " " + itemsOrdered[i].getCost()+" \n"); 
+	    	System.out.print(itemsOrdered[i].getTitle() + "\t  " + itemsOrdered[i].getCategory()+ "\t " 
+	    			+ itemsOrdered[i].getDirector() + "\t " + itemsOrdered[i].getLength() + "\t " 
+	    			+ itemsOrdered[i].getCost() + " \n"); 
 	    }
     }
     public void findbyID(int id)
     {
     	for(int i = 0; i < qtyOrdered(); i++) {
     		if(itemsOrdered[i].isMatch(id)) {
-    			System.out.print(itemsOrdered[i].getTitle() + "  " + itemsOrdered[i].getCategory()+ " " + itemsOrdered[i].getCost()+" \n");
+    			System.out.print("Found matching ID of " + id + ": " + itemsOrdered[i].getTitle() + "\t  " 
+    					+ itemsOrdered[i].getCategory()+ "\t " + itemsOrdered[i].getCost()+" \n");
     		}
     		else {
     			itemsOrdered1[i] = itemsOrdered[i];
@@ -106,18 +109,18 @@ public class Cart {
 	    c.addDigitalVideoDisc(disc1, disc2);
 //	    c.addDigitalVideoDisc(disc2, di[0], di[1]);
 	    
-	    System.out.println("Quantity ordered: "+ c.qtyOrdered());
-	   // for(int i = 0; i < c.qtyOrdered(); i++) {
-	    	//System.out.print(c.itemsOrdered[i].getTitle() + " \n"); 
-	  //  }
-	    
-     //c.removeDigitalVideoDisc(disc2);
-    // for(int i = 0; i < c.qtyOrdered(); i++) {
-		  // System.out.print(c.itemsOrdered[i].getTitle() + " ");
-	 //  }
+//	    System.out.println("Quantity ordered: "+ c.qtyOrdered());
+//	    for(int i = 0; i < c.qtyOrdered(); i++) {
+//	    	System.out.print(c.itemsOrdered[i].getTitle() + " \n"); 
+//	    }
+//	    
+//		c.removeDigitalVideoDisc(disc2);
+//		for(int i = 0; i < c.qtyOrdered(); i++) {
+//			System.out.print(c.itemsOrdered[i].getTitle() + " ");
+//		}
 	    c.print();
-	System.out.print("Total cost: " + " ");   
-    System.out.print(c.totalCost() + "\n");
-       c.findbyID(1234);
-}
+	    System.out.print("Total cost: " + " ");   
+	    System.out.print(c.totalCost() + "\n");
+	    c.findbyID(1234);
+	}
 }
