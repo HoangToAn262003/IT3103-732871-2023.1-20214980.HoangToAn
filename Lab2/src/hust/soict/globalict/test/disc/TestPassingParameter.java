@@ -1,3 +1,6 @@
+package hust.soict.globalict.test.disc;
+import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+
 // Hoàng Tố An - 20214980
 public class TestPassingParameter {
 

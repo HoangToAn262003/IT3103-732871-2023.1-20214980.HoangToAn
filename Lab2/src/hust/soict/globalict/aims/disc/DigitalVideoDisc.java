@@ -1,3 +1,4 @@
+package hust.soict.globalict.aims.disc;
 // Hoàng Tố An - 20214980
 public class DigitalVideoDisc {
    private String category;
