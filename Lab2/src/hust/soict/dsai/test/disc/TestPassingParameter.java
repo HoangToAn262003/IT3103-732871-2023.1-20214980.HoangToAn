@@ -1,5 +1,5 @@
-package hust.soict.globalict.test.disc;
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+package hust.soict.dsai.test.disc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 // Hoàng Tố An - 20214980
 public class TestPassingParameter {

@@ -1,6 +1,6 @@
-package hust.soict.globalict.test.store;
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
-import hust.soict.globalict.aims.store.Store;
+package hust.soict.dsai.test.store;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.store.Store;
 
 // Hoàng Tố An - 20214980
 public class StoreTest {
