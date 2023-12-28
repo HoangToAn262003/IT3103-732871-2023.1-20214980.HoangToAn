@@ -1,7 +1,7 @@
-import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
-import hust.soict.dsai.aims.media.Media;
-import hust.soict.dsai.aims.store.Store;
+import hust.soict.globalict.aims.cart.Cart;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.Media;
+import hust.soict.globalict.aims.store.Store;
 
 import java.util.ArrayList;
 import java.util.Scanner;
