@@ -12,21 +12,21 @@ import hust.soict.globalict.aims.media.Media;
 import hust.soict.globalict.aims.media.Playable;
 import javafx.collections.ObservableList;
 
+// Hoàng Tố An - 20214980
 public class MediaStore extends JPanel{
 	private Media media;
+	
 	static StoreScreen m;
-	Cart s = new Cart();
+	Cart c = new Cart();
 	public JButton Add;
 //	ArrayList<Media>test = s.itemsOrdered;
 //	ArrayList<MediaStore>test1 = new ArrayList<MediaStore>();
-	ObservableList<Media>test = s.itemsOrdered;
+	ObservableList<Media>test = c.itemsOrdered;
 //	ObservableList<MediaStore>test1 = new ObservableList<MediaStore>();
-	String title1;
-	float cost1;
 	
 	public MediaStore() {
-		
 	}
+	
 	public MediaStore(Media media) {
 		this.media = media;
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -43,8 +43,6 @@ public class MediaStore extends JPanel{
 		
 		Add = new JButton("Add to cart");
 		container.add(Add);
-		title1 = media.getTitle();
-		cost1 = media.getCost();
 		//Add.addActionListener(new ButtonListener());
 		
 		if (media instanceof Playable) {
@@ -61,33 +59,25 @@ public class MediaStore extends JPanel{
 
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
-	public Media getmedia()
-	{
-		return media;
-	}
-
+	
+	//Hoàng Tố An - 20214980
 	public class ButtonListener implements ActionListener{
-		//MediaStore m2 = new MediaStore(m1);
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String button = e.getActionCommand();
-			if(button.charAt(0) == 'P') {
+			if (button.equals("Play")) {
 				JDialog d = new JDialog(m, "Dialog Box");
 				JLabel l = new JLabel(media.getTitle() + " now playing");
-                System.out.print(media.getTitle());
 	            d.add(l);
 	 
-	            d.setSize(100, 100);
+	            d.setSize(300, 100);
 	            d.setVisible(true);
 			}
-			if(button.charAt(0)== 'A')
-			{
-				s.addMedia(new Media(title1, cost1));
-				for(int i = 0; i < s.itemsOrdered.size(); i++)
-				{
-					System.out.print(s.itemsOrdered.get(i).getTitle());
-				}
+			if (button.equals("Add to cart")) {
+				c.addMedia(media);
+				c.print();
 			}
 		}
 	}
+
 }

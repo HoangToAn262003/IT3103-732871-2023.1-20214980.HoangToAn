@@ -3,18 +3,14 @@ package hust.soict.globalict.aims.media;
 import java.util.Comparator;
 import java.util.Objects;
 
-import hust.soict.globalict.aims.cart.MediaComparatorByCostTitle;
-
 public class Media {
 	private int id;
 	private String title;
 	private String category;
 	private float cost;
-  //  public static final Comparator<Media> COMPARE_BY_COST_TITLE = (Comparator<Media>) new MediaComparatorByCostTitle();
-   // java.util.Collection.sort(collection, COMPARE_BY_COST_TITLE)
-	public Media() {
-		// TODO Auto-generated constructor stub
-	}
+	//public static final Comparator<Media> COMPARE_BY_COST_TITLE = (Comparator<Media>) new MediaComparatorByCostTitle();
+	//java.util.Collection.sort(collection, COMPARE_BY_COST_TITLE);
+
 	public Media(int id, String title, String category, float cost) {
 		this.id = id;
 		this.title = title;
@@ -27,9 +23,15 @@ public class Media {
 		this.title = title;
 		this.cost = cost;
 	}
+	
 	public Media(String title) {
 		this.title = title;
 	}
+	
+	public Media() {
+		
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -77,6 +79,7 @@ public class Media {
 		}
 	return false;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

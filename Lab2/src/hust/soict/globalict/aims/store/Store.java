@@ -8,20 +8,18 @@ import hust.soict.globalict.aims.media.Media;
 // Hoàng Tố An - 20214980
 public class Store {
 	public static final int MAX = 100;
-	int i = 0;
-	int size = 0;
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 	public void setArrayList(ArrayList<Media> m)
 	{
 		itemsInStore = m;
 		itemsInStore.add(new DigitalVideoDisc("Detective Pikachu", 45f));
-		itemsInStore.add(new Media(1234, "Exorcist", "horror", 45f));
-		itemsInStore.add(new Media(1234, "Pokemon", "funny", 45f));
-		itemsInStore.add(new Media(1234, "Mario", "funny", 45f));
-		itemsInStore.add(new Media(1234, "Kirby", "funny", 45f));
-		itemsInStore.add(new Media(1234, "Sonic", "funny", 45f));
+		itemsInStore.add(new Media(1, "Exorcist", "horror", 45f));
+		itemsInStore.add(new Media(2, "Pokemon", "funny", 45f));
+		itemsInStore.add(new Media(3, "Mario", "funny", 45f));
+		itemsInStore.add(new Media(4, "Kirby", "funny", 45f));
+		itemsInStore.add(new Media(5, "Sonic", "funny", 45f));
 		itemsInStore.add(new Book("Ghost Stories", 45f));
-		itemsInStore.add(new Media(1234, "Donkey Kong", "funny", 45f));
+		itemsInStore.add(new Media(6, "Donkey Kong", "funny", 45f));
 		itemsInStore.add(new DigitalVideoDisc("Godzilla", 45f));
 	}
 	public ArrayList<Media> getItemsInStore() {
