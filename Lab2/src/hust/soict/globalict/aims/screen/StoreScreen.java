@@ -1,20 +1,28 @@
 package hust.soict.globalict.aims.screen;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
+import hust.soict.globalict.aims.cart.Cart;
 import hust.soict.globalict.aims.media.Media;
 import hust.soict.globalict.aims.screen.MediaStore.ButtonListener;
 import hust.soict.globalict.aims.store.Store;
 
+// Hoàng Tố An - 20214980
 public class StoreScreen extends JFrame{
 	private Store store;
-	static StoreScreen m;
+	
+	private Cart c;
+	//static StoreScreen m;
 	JButton button = new JButton();
 	Media m2 = new Media();
 	MediaStore m1 = new MediaStore();
+	
+	// Hoàng Tố An - 20214980
 	JPanel createNorth() {
 		JPanel north = new JPanel();
 		north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
@@ -23,6 +31,7 @@ public class StoreScreen extends JFrame{
 		return north;
 	}
 	
+	// Hoàng Tố An - 20214980
 	JMenuBar createMenuBar() {
 		JMenu menu = new JMenu("Options");
 		
@@ -42,6 +51,7 @@ public class StoreScreen extends JFrame{
 		return menuBar;
 	}
 	
+	// Hoàng Tố An - 20214980
 	JPanel createHeader() {
 		JPanel header = new JPanel();
 		header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
@@ -53,6 +63,7 @@ public class StoreScreen extends JFrame{
 		JButton cart = new JButton ("View cart");
 		cart.setPreferredSize(new Dimension(100, 50));
 		cart.setMaximumSize(new Dimension(100, 50));
+		cart.addActionListener(new ButtonListener(c));
 		
 		header.add(Box.createRigidArea(new Dimension(10, 10)));
 		header.add(title);
@@ -63,6 +74,7 @@ public class StoreScreen extends JFrame{
 		return header;
 	}
 	
+	// Hoàng Tố An - 20214980
 	JPanel createCenter() {
 		JPanel center = new JPanel();
 		center.setLayout(new GridLayout(3, 3, 2, 2));
@@ -77,9 +89,10 @@ public class StoreScreen extends JFrame{
 		
 		return center;
 	}
-	
-	public StoreScreen(Store store) {
+	// Hoàng Tố An - 20214980
+	public StoreScreen(Store store, Cart cart) {
 		this.store = store;
+		this.c = cart;
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
 		
@@ -91,10 +104,21 @@ public class StoreScreen extends JFrame{
 		setSize(1024, 768);
 	}
 	
-	public static void main(String args[])
-	{
-		Store s = new Store();
-		s.setArrayList(new ArrayList<Media>());
-		new StoreScreen(s);
+	public class ButtonListener implements ActionListener {
+		private Cart cart;
+		
+		public ButtonListener(Cart cart) {
+			super();
+			this.cart = cart;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String button = e.getActionCommand();
+			if (button.equals("View cart")) {
+				new CartScreen(cart);
+			}
+		}
+		
 	}
 }

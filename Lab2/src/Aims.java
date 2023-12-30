@@ -56,9 +56,9 @@ public class Aims {
 			case 2:
 				System.out.print("please enter the title to add");
 				title = sc.next();
-				for(Media media : s.getItemsinstore()) {
+				for(Media media : s.getItemsInStore()) {
 					if(media.getTitle().equalsIgnoreCase(title)) {
-						c.addMedia(title);
+						c.addMedia(media);
 					}
 				}
 				c.showInfo();
@@ -93,7 +93,7 @@ public class Aims {
 					Media m1= new Media(2345, "Snake", "horror", 34f);
 					s.addMedia(m);	
 					s.addMedia(m1);
-					for(Media m2 : s.getItemsinstore()) {
+					for(Media m2 : s.getItemsInStore()) {
 						 System.out.print(m2.getId() + " " + m2.getTitle() + " " +  m2.getCost()+ "\n");
 					}
 				}

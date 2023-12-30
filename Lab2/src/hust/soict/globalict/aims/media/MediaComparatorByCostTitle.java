@@ -1,7 +1,12 @@
-package hust.soict.globalict.aims.cart;
+package hust.soict.globalict.aims.media;
 import java.util.Comparator;
-
-import hust.soict.globalict.aims.media.Media;
 public class MediaComparatorByCostTitle {
-    Comparator<Media> compare = Comparator.comparing(Media::getCost).thenComparing(Media::getTitle);
+	public int compare(Media m1, Media m2) {
+		int costCompare = Float.compare(m1.getCost(), m2.getCost());
+		
+		if (costCompare != 0) {
+			return costCompare;
+		}
+		return m1.getTitle().compareTo(m2.getTitle());
+	}
 }

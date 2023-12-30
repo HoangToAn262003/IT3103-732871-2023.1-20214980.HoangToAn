@@ -1,6 +1,7 @@
 package hust.soict.globalict.aims.cart;
 import java.util.ArrayList;
 
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 import hust.soict.globalict.aims.media.Media;
 import hust.soict.globalict.aims.store.Store;
 import javafx.collections.FXCollections;
@@ -9,47 +10,40 @@ import javafx.collections.ObservableList;
 // Hoàng Tố An - 20214980
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
-	int size = 0;
-	Media m = new Media();
 	Store s = new Store();
-	//public ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	public ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+	private ArrayList<DigitalVideoDisc>itemsOrdered1 = new ArrayList<DigitalVideoDisc>();
 	
 	public void addMedia(Media m) {
+		if (itemsOrdered.size() < MAX_NUMBERS_ORDERED)
 		itemsOrdered.add(m);
-		for(int i = 0; i < itemsOrdered.size(); i++)
-		{
-			m.setTitle(itemsOrdered.get(i).getTitle());
-			//System.out.print(itemsOrdered.get(i).getTitle());
-		}
-		//System.out.print(itemsOrdered.size());
+		else System.out.println("Could not add " + m.getTitle() + " to cart.");
 	}
-		  
-//	public void setItemsOrdered(ArrayList<Media> itemsOrdered) {
-	public void setItemsOrdered(ObservableList<Media> itemsOrdered) {
-		this.itemsOrdered = itemsOrdered;
-	}
-    
-	//public ArrayList<Media> getItemsOrdered() {
-	public ObservableList<Media> getItemsOrdered() {
-		return itemsOrdered;
-	}
-
-	public void showInfo()
-	{
-		s.setArrayList(itemsOrdered);
-		for(Media m2 : s.getItemsInStore()) {
-			 System.out.print(m2.getId() + " " + m2.getTitle() + " " +  m2.getCost() + "\n");
-		}
-	}
-
-	void RemoveMedia(Media m) {
+	
+	public void removeMedia(Media m) {
 		for(Media i: itemsOrdered) {
 			if(i.getTitle() == m.getTitle()) {
 				itemsOrdered.remove(m);
 			}
 		}
 	}
+		  
+	public void setItemsOrdered(ObservableList<Media> itemsOrdered) {
+		this.itemsOrdered = itemsOrdered;
+	}
+    
+	public ObservableList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
+
+	public void showInfo()
+	{
+		//s.setArrayList(itemsOrdered);
+		for(Media m2 : s.getItemsInStore()) {
+			 System.out.print(m2.getId() + " " + m2.getTitle() + " " +  m2.getCost() + "\n");
+		}
+	}
+
 	public float totalCost()
 	{
 		float sum = 0f;
@@ -58,6 +52,16 @@ public class Cart {
 		}
 		return sum;
 	}
+	
+	public void playDvd(String title)
+	{
+		for(DigitalVideoDisc dvd : itemsOrdered1) {
+			if(dvd.getTitle().equalsIgnoreCase(title)) {
+				dvd.play();
+			}
+		}
+	}
+	
     public void print()
     {
     	System.out.println("***********************CART***********************");
@@ -73,9 +77,7 @@ public class Cart {
 //    			System.out.print("Found matching ID of " + id + ": " + m.getTitle() + "\t  " 
 //    					+ m.getCategory()+ "\t " + m.getCost()+" \n");
 //    		}
-//    		else {
-//    			itemsOrdered1[i] = itemsOrdered[i];
-//    		}
+//
 //    	}
 //    	if(itemsOrdered1.length == qtyOrdered()) {
 //    		System.out.print("No information");

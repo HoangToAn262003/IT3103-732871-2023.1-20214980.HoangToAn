@@ -7,6 +7,13 @@ public class Book extends Media{
 	
 	private ArrayList<String> authors = new ArrayList<String>();
 
+	public Book() {
+	}
+	
+	public Book(String title, float cost) {
+		super(title, cost);
+	}
+	
 	void addAuthor(String authorName){
 		for (int i = 0; i < authors.size(); i++) {
 			if (authorName == authors.get(i))
@@ -22,12 +29,6 @@ public class Book extends Media{
 			}
 		}
 		return;
-	}
-	
-	public Book() {
-	}
-	public Book(String title, float cost) {
-		super(title, cost);
 	}
 
 	public ArrayList<String> getAuthors() {

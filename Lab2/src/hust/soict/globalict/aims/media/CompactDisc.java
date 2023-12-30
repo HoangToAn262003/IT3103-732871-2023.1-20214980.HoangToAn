@@ -6,22 +6,24 @@ public class CompactDisc extends Disc implements Playable{
 	private String artist;
 	private ArrayList<Track> tracks = new ArrayList<Track>();
     
-	public String getArtist() {
-    	return artist;
-	}
-    
 	public CompactDisc() {
 	}
-
-	public void setTracks(ArrayList<Track> tracks) {
-		this.tracks = tracks;
-	}
-
+	
 	public CompactDisc(int length, String director, String artist, ArrayList<Track> tracks) {
 		super(length, director);
 		this.artist = artist;
 		this.tracks = tracks;
 	}
+	
+	public String getArtist() {
+    	return artist;
+	}
+    
+	public void setTracks(ArrayList<Track> tracks) {
+		this.tracks = tracks;
+	}
+
+
     void addTrack(Track t)
     {
     	int count = 0;
@@ -34,6 +36,7 @@ public class CompactDisc extends Disc implements Playable{
     		tracks.add(t);
     	}
     }
+    
     void removeTrack(Track t)
     {
 
@@ -50,6 +53,7 @@ public class CompactDisc extends Disc implements Playable{
     		tracks.remove(t);
     	}
     }
+    
     int getlength()
     {
     	int length = 0;
@@ -64,6 +68,7 @@ public class CompactDisc extends Disc implements Playable{
     		t.play();
     	}
     }
+    
     public static void main(String[] args) {
     	Track t1 = new Track("Piupiu", 3);
     	Track t2 = new Track("Piupiu", 4);
